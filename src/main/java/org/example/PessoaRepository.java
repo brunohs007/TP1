@@ -12,7 +12,7 @@ public class PessoaRepository {
         try (ObjectInputStream ois = new ObjectInputStream(new FileInputStream(ARQUIVO))) {
             pessoas = (List<Pessoa>) ois.readObject();
         } catch (FileNotFoundException e) {
-            // Arquivo ainda não existe, é normal na primeira execução
+            // Exceção necessaria para a primeira execução, caso o usuario busque uma pessoa antes do txt ser criado
         } catch (IOException | ClassNotFoundException e) {
             e.printStackTrace();
         }
